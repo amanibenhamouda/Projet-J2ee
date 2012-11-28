@@ -14,36 +14,7 @@ import java.util.Date;
 @Table(name="facture")
 
 public class Facture implements Serializable {
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((date == null) ? 0 : date.hashCode());
-		result = prime * result + idFacture;
-		result = prime * result + Float.floatToIntBits(prix);
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Facture other = (Facture) obj;
-		if (date == null) {
-			if (other.date != null)
-				return false;
-		} else if (!date.equals(other.date))
-			return false;
-		if (idFacture != other.idFacture)
-			return false;
-		if (Float.floatToIntBits(prix) != Float.floatToIntBits(other.prix))
-			return false;
-		return true;
-	}
+	
 
 	private static final long serialVersionUID = 1L;
 
@@ -81,6 +52,36 @@ public class Facture implements Serializable {
 
 	public void setPrix(float prix) {
 		this.prix = prix;
+	}
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
+		result = prime * result + idFacture;
+		result = prime * result + Float.floatToIntBits(prix);
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Facture other = (Facture) obj;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
+			return false;
+		if (idFacture != other.idFacture)
+			return false;
+		if (Float.floatToIntBits(prix) != Float.floatToIntBits(other.prix))
+			return false;
+		return true;
 	}
 
 }

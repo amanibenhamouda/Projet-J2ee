@@ -16,8 +16,9 @@ public class Voiture implements Serializable {
 
 	@Id
 	private int matricule;
-
 	private String couleur;
+	private String marque;
+
 
 	@Override
 	public int hashCode() {
@@ -53,7 +54,7 @@ public class Voiture implements Serializable {
 		return true;
 	}
 
-	private String marque;
+
 
 	public Voiture() {
 	}
