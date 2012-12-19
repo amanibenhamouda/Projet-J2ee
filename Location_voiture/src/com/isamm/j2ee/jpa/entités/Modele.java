@@ -1,6 +1,9 @@
 package com.isamm.j2ee.jpa.entités;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 
@@ -26,6 +29,8 @@ public class Modele implements Serializable {
 
 	@Column(name="num_porte")
 	private int numPorte;
+	@OneToMany
+	private Set<Voiture> voitures =new HashSet<Voiture>();;
 
 	public Modele() {
 	}

@@ -1,6 +1,9 @@
 package com.isamm.j2ee.jpa.entités;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 
@@ -10,6 +13,10 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="client")
+@NamedQuery(
+		name="Client.findtAll",
+	    query="SELECT c FROM Client c "
+		)
 
 public class Client  extends Compte implements Serializable {
 	private static final long serialVersionUID = 1L;
@@ -44,6 +51,9 @@ public class Client  extends Compte implements Serializable {
 	private String titre;
 
 	private String ville;
+
+	@OneToMany
+	private Set<Reservation> reservations =new HashSet<Reservation>();;
 
 	public Client() {
 	}
@@ -150,6 +160,14 @@ public class Client  extends Compte implements Serializable {
 
 	public void setVille(String ville) {
 		this.ville = ville;
+	}
+
+	public Set<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 
 	@Override

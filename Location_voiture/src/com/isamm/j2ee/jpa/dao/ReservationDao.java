@@ -16,4 +16,9 @@ public static void ajouter(Reservation r){
 		em.remove(r);
 		em.getTransaction().commit();
 	}
+	public static void modifier(Reservation r){
+		em.getTransaction().begin();
+		em.merge(r);
+		em.getTransaction().commit();
+	}
 }

@@ -1,7 +1,7 @@
 package com.isamm.j2ee.jpa.entités;
 
 public class Compte {
-	
+	 
 	private String  login;
 	private String pwd;
 

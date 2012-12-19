@@ -10,7 +10,7 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="administrateur")
-public class Administrateur implements Serializable {
+public class Administrateur extends Compte implements Serializable {
 	
 	private static final long serialVersionUID = 1L;
 

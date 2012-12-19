@@ -16,4 +16,9 @@ public static void supprimer(Agent agent){
 	em.remove(agent);
 	em.getTransaction().commit();
 }
+public static void modifier(Agent agent){
+	em.getTransaction().begin();
+	em.merge(agent);
+	em.getTransaction().commit();
+}
 }

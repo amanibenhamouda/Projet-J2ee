@@ -1,7 +1,11 @@
 package com.isamm.j2ee.jpa.entités;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
+
 
 
 /**
@@ -13,6 +17,7 @@ import javax.persistence.*;
 
 public class Agence implements Serializable {
 	private static final long serialVersionUID = 1L;
+	
 
 	@Id
 	@GeneratedValue(strategy=GenerationType.AUTO)
@@ -29,6 +34,10 @@ public class Agence implements Serializable {
 	private int tel;
 
 	private String ville;
+	@OneToMany
+	private Set<Client> clients =new HashSet<Client>();;
+	@OneToMany
+	private Set<Voiture> voitures =new HashSet<Voiture>();;
 
 	public Agence() {
 	}
@@ -79,6 +88,22 @@ public class Agence implements Serializable {
 
 	public void setVille(String ville) {
 		this.ville = ville;
+	}
+
+	public Set<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(Set<Client> clients) {
+		this.clients = clients;
+	}
+
+	public Set<Voiture> getVoitures() {
+		return voitures;
+	}
+
+	public void setVoitures(Set<Voiture> voitures) {
+		this.voitures = voitures;
 	}
 
 	@Override

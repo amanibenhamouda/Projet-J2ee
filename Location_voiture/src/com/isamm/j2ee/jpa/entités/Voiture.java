@@ -1,6 +1,9 @@
 package com.isamm.j2ee.jpa.entités;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 
@@ -25,6 +28,8 @@ public class Voiture implements Serializable {
 	private int modele;
 
 	private int quantite;
+	@OneToMany
+	private Set<Reservation> reservations =new HashSet<Reservation>();;
 
 	public Voiture() {
 	}
@@ -67,6 +72,15 @@ public class Voiture implements Serializable {
 
 	public void setQuantite(int quantite) {
 		this.quantite = quantite;
+	}
+	
+
+	public Set<Reservation> getReservations() {
+		return reservations;
+	}
+
+	public void setReservations(Set<Reservation> reservations) {
+		this.reservations = reservations;
 	}
 
 	@Override

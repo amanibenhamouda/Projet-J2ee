@@ -1,6 +1,9 @@
 package com.isamm.j2ee.jpa.entités;
 
 import java.io.Serializable;
+import java.util.HashSet;
+import java.util.Set;
+
 import javax.persistence.*;
 
 
@@ -32,6 +35,9 @@ public class Agent extends Compte implements Serializable {
 	private int tel;
 
 	private int ville;
+	@OneToMany
+	private Set<Client> clients =new HashSet<Client>();;
+
 
 	public Agent() {
 	}
@@ -98,6 +104,15 @@ public class Agent extends Compte implements Serializable {
 
 	public void setVille(int ville) {
 		this.ville = ville;
+	}
+	
+
+	public Set<Client> getClients() {
+		return clients;
+	}
+
+	public void setClients(Set<Client> clients) {
+		this.clients = clients;
 	}
 
 	@Override

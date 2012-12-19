@@ -17,5 +17,10 @@ public static void supprimer(Modele m){
 	em.getTransaction().commit();
 	
 }
+public static void modifier(Modele m){
+	em.getTransaction().begin();
+	em.merge(m);
+	em.getTransaction();
+}
 	
 }
