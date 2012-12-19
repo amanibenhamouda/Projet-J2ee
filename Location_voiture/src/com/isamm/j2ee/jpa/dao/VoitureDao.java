@@ -2,6 +2,7 @@ package com.isamm.j2ee.jpa.dao;
 
 import javax.persistence.EntityManager;
 
+import com.isamm.j2ee.jpa.entités.Administrateur;
 import com.isamm.j2ee.jpa.entités.Voiture;
 
 public class VoitureDao {
@@ -15,7 +16,7 @@ public class VoitureDao {
 		em.getTransaction().begin();
 		em.remove(v);
 		em.getTransaction().commit();
+		
 	}
-	
 	
 }

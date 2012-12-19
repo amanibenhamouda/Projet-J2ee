@@ -15,46 +15,16 @@ public class Voiture implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@GeneratedValue(strategy=GenerationType.AUTO)
 	private int matricule;
+
 	private String couleur;
+
 	private String marque;
 
+	private int modele;
 
-	@Override
-	public int hashCode() {
-		final int prime = 31;
-		int result = 1;
-		result = prime * result + ((couleur == null) ? 0 : couleur.hashCode());
-		result = prime * result + ((marque == null) ? 0 : marque.hashCode());
-		result = prime * result + matricule;
-		return result;
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		Voiture other = (Voiture) obj;
-		if (couleur == null) {
-			if (other.couleur != null)
-				return false;
-		} else if (!couleur.equals(other.couleur))
-			return false;
-		if (marque == null) {
-			if (other.marque != null)
-				return false;
-		} else if (!marque.equals(other.marque))
-			return false;
-		if (matricule != other.matricule)
-			return false;
-		return true;
-	}
-
-
+	private int quantite;
 
 	public Voiture() {
 	}
@@ -82,5 +52,62 @@ public class Voiture implements Serializable {
 	public void setMarque(String marque) {
 		this.marque = marque;
 	}
+
+	public int getModele() {
+		return this.modele;
+	}
+
+	public void setModele(int modele) {
+		this.modele = modele;
+	}
+
+	public int getQuantite() {
+		return this.quantite;
+	}
+
+	public void setQuantite(int quantite) {
+		this.quantite = quantite;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((couleur == null) ? 0 : couleur.hashCode());
+		result = prime * result + ((marque == null) ? 0 : marque.hashCode());
+		result = prime * result + matricule;
+		result = prime * result + modele;
+		result = prime * result + quantite;
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Voiture other = (Voiture) obj;
+		if (couleur == null) {
+			if (other.couleur != null)
+				return false;
+		} else if (!couleur.equals(other.couleur))
+			return false;
+		if (marque == null) {
+			if (other.marque != null)
+				return false;
+		} else if (!marque.equals(other.marque))
+			return false;
+		if (matricule != other.matricule)
+			return false;
+		if (modele != other.modele)
+			return false;
+		if (quantite != other.quantite)
+			return false;
+		return true;
+	}
+	
 
 }

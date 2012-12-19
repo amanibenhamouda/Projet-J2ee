@@ -3,10 +3,12 @@
 	<persistence-unit name="Location_voiture" transaction-type="RESOURCE_LOCAL">
 		<mapping-file>META-INF/orm.xml</mapping-file>
 		<class>com.isamm.j2ee.jpa.entités.Administrateur</class>
+		<class>com.isamm.j2ee.jpa.entités.Agence</class>
+		<class>com.isamm.j2ee.jpa.entités.Agent</class>
 		<class>com.isamm.j2ee.jpa.entités.Client</class>
-		<class>com.isamm.j2ee.jpa.entités.Facture</class>
-		<class>com.isamm.j2ee.jpa.entités.Reservation</class>
+		<class>com.isamm.j2ee.jpa.entités.Modele</class>
 		<class>com.isamm.j2ee.jpa.entités.Voiture</class>
+		<class>com.isamm.j2ee.jpa.entités.Reservation</class>
 		<properties>
 			<property name="javax.persistence.jdbc.url" value="jdbc:mysql://localhost:3306/location_voiture"/>
 			<property name="javax.persistence.jdbc.user" value="root"/>

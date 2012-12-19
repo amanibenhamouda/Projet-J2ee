@@ -11,29 +11,35 @@ import javax.persistence.*;
 @Entity
 @Table(name="client")
 
-public class Client implements Serializable {
-	
+public class Client  extends Compte implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	private int cin;
+	@GeneratedValue(strategy=GenerationType.AUTO)
+	@Column(name="id_client")
+	private int idClient;
 
 	private String adresse;
 
 	private int age;
 
-	@Column(name="code_postal")
-	private int codePostal;
+	@Column(name="code_postale")
+	private int codePostale;
+
+	private String email;
+
+	@Column(name="id_agent")
+	private int idAgent;
 
 	private String login;
-
-	private String mail;
 
 	private String nom;
 
 	private String prenom;
 
 	private String pwd;
+
+	private int tel;
 
 	private String titre;
 
@@ -42,12 +48,12 @@ public class Client implements Serializable {
 	public Client() {
 	}
 
-	public int getCin() {
-		return this.cin;
+	public int getIdClient() {
+		return this.idClient;
 	}
 
-	public void setCin(int cin) {
-		this.cin = cin;
+	public void setIdClient(int idClient) {
+		this.idClient = idClient;
 	}
 
 	public String getAdresse() {
@@ -66,12 +72,28 @@ public class Client implements Serializable {
 		this.age = age;
 	}
 
-	public int getCodePostal() {
-		return this.codePostal;
+	public int getCodePostale() {
+		return this.codePostale;
 	}
 
-	public void setCodePostal(int codePostal) {
-		this.codePostal = codePostal;
+	public void setCodePostale(int codePostale) {
+		this.codePostale = codePostale;
+	}
+
+	public String getEmail() {
+		return this.email;
+	}
+
+	public void setEmail(String email) {
+		this.email = email;
+	}
+
+	public int getIdAgent() {
+		return this.idAgent;
+	}
+
+	public void setIdAgent(int idAgent) {
+		this.idAgent = idAgent;
 	}
 
 	public String getLogin() {
@@ -80,14 +102,6 @@ public class Client implements Serializable {
 
 	public void setLogin(String login) {
 		this.login = login;
-	}
-
-	public String getMail() {
-		return this.mail;
-	}
-
-	public void setMail(String mail) {
-		this.mail = mail;
 	}
 
 	public String getNom() {
@@ -114,6 +128,14 @@ public class Client implements Serializable {
 		this.pwd = pwd;
 	}
 
+	public int getTel() {
+		return this.tel;
+	}
+
+	public void setTel(int tel) {
+		this.tel = tel;
+	}
+
 	public String getTitre() {
 		return this.titre;
 	}
@@ -129,19 +151,22 @@ public class Client implements Serializable {
 	public void setVille(String ville) {
 		this.ville = ville;
 	}
+
 	@Override
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
 		result = prime * result + ((adresse == null) ? 0 : adresse.hashCode());
 		result = prime * result + age;
-		result = prime * result + cin;
-		result = prime * result + codePostal;
+		result = prime * result + codePostale;
+		result = prime * result + ((email == null) ? 0 : email.hashCode());
+		result = prime * result + idAgent;
+		result = prime * result + idClient;
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
-		result = prime * result + ((mail == null) ? 0 : mail.hashCode());
 		result = prime * result + ((nom == null) ? 0 : nom.hashCode());
 		result = prime * result + ((prenom == null) ? 0 : prenom.hashCode());
 		result = prime * result + ((pwd == null) ? 0 : pwd.hashCode());
+		result = prime * result + tel;
 		result = prime * result + ((titre == null) ? 0 : titre.hashCode());
 		result = prime * result + ((ville == null) ? 0 : ville.hashCode());
 		return result;
@@ -163,19 +188,21 @@ public class Client implements Serializable {
 			return false;
 		if (age != other.age)
 			return false;
-		if (cin != other.cin)
+		if (codePostale != other.codePostale)
 			return false;
-		if (codePostal != other.codePostal)
+		if (email == null) {
+			if (other.email != null)
+				return false;
+		} else if (!email.equals(other.email))
+			return false;
+		if (idAgent != other.idAgent)
+			return false;
+		if (idClient != other.idClient)
 			return false;
 		if (login == null) {
 			if (other.login != null)
 				return false;
 		} else if (!login.equals(other.login))
-			return false;
-		if (mail == null) {
-			if (other.mail != null)
-				return false;
-		} else if (!mail.equals(other.mail))
 			return false;
 		if (nom == null) {
 			if (other.nom != null)
@@ -192,6 +219,8 @@ public class Client implements Serializable {
 				return false;
 		} else if (!pwd.equals(other.pwd))
 			return false;
+		if (tel != other.tel)
+			return false;
 		if (titre == null) {
 			if (other.titre != null)
 				return false;
@@ -205,4 +234,5 @@ public class Client implements Serializable {
 		return true;
 	}
 
+	
 }

@@ -1,51 +1,19 @@
 package com.isamm.j2ee.jpa.entités;
 
-import java.io.Serializable;
-import javax.persistence.*;
-
-
-/**
- * The persistent class for the administrateur database table.
- * 
- */
-@Entity
-@Table(name="administrateur")
-public class Administrateur implements Serializable {
+public class Compte {
 	
-	private static final long serialVersionUID = 1L;
-
-	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
-
-	private int id;
-
-	private String login;
-
+	private String  login;
 	private String pwd;
 
-	public Administrateur() {
+    public String getLogin() {
+		return login;
 	}
-
-	public int getId() {
-		return this.id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
-	}
-
-	public String getLogin() {
-		return this.login;
-	}
-
 	public void setLogin(String login) {
 		this.login = login;
 	}
-
 	public String getPwd() {
-		return this.pwd;
+		return pwd;
 	}
-
 	public void setPwd(String pwd) {
 		this.pwd = pwd;
 	}
@@ -53,12 +21,10 @@ public class Administrateur implements Serializable {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + id;
 		result = prime * result + ((login == null) ? 0 : login.hashCode());
 		result = prime * result + ((pwd == null) ? 0 : pwd.hashCode());
 		return result;
 	}
-
 	@Override
 	public boolean equals(Object obj) {
 		if (this == obj)
@@ -67,9 +33,7 @@ public class Administrateur implements Serializable {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		Administrateur other = (Administrateur) obj;
-		if (id != other.id)
-			return false;
+		Compte other = (Compte) obj;
 		if (login == null) {
 			if (other.login != null)
 				return false;
@@ -82,4 +46,6 @@ public class Administrateur implements Serializable {
 			return false;
 		return true;
 	}
+	
+
 }
